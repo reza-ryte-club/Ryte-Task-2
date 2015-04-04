@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-
+#import "AppDelegate.h"
 @interface SecondViewController ()
 
 @end
