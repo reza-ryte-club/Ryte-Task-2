@@ -19,6 +19,7 @@
 		9CC739F61ACF1C9400DD47C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC739F51ACF1C9400DD47C6 /* Images.xcassets */; };
 		9CC739F91ACF1C9400DD47C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC739F71ACF1C9400DD47C6 /* LaunchScreen.xib */; };
 		9CC73A051ACF1C9500DD47C6 /* TabAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC73A041ACF1C9500DD47C6 /* TabAppTests.m */; };
+		9CCD254D1AD09BA300414614 /* Tasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD254C1AD09BA300414614 /* Tasks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		9CC739FE1ACF1C9400DD47C6 /* TabAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TabAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC73A031ACF1C9500DD47C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CC73A041ACF1C9500DD47C6 /* TabAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabAppTests.m; sourceTree = "<group>"; };
+		9CCD254B1AD09BA300414614 /* Tasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tasks.h; sourceTree = "<group>"; };
+		9CCD254C1AD09BA300414614 /* Tasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tasks.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				9C8F72581AD0694800A0DCFE /* FifthViewController.m */,
 				9CC739F21ACF1C9400DD47C6 /* Main.storyboard */,
 				9C8F725C1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld */,
+				9CCD254B1AD09BA300414614 /* Tasks.h */,
+				9CCD254C1AD09BA300414614 /* Tasks.m */,
 				9CC739F51ACF1C9400DD47C6 /* Images.xcassets */,
 				9CC739F71ACF1C9400DD47C6 /* LaunchScreen.xib */,
 				9CC739E51ACF1C9400DD47C6 /* Supporting Files */,
@@ -241,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CCD254D1AD09BA300414614 /* Tasks.m in Sources */,
 				9C8F72591AD0694800A0DCFE /* FifthViewController.m in Sources */,
 				9C8F725E1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld in Sources */,
 				9CC739F11ACF1C9400DD47C6 /* SecondViewController.m in Sources */,
