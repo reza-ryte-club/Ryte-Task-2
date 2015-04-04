@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C598C991AD066AF009A87FF /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C598C981AD066AF009A87FF /* FourthViewController.m */; };
+		9C8F72591AD0694800A0DCFE /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F72581AD0694800A0DCFE /* FifthViewController.m */; };
+		9C8F725B1AD070E000A0DCFE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8F725A1AD070E000A0DCFE /* CoreData.framework */; };
 		9CC739E81ACF1C9400DD47C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC739E71ACF1C9400DD47C6 /* main.m */; };
 		9CC739EB1ACF1C9400DD47C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC739EA1ACF1C9400DD47C6 /* AppDelegate.m */; };
 		9CC739EE1ACF1C9400DD47C6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC739ED1ACF1C9400DD47C6 /* FirstViewController.m */; };
@@ -28,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C598C971AD066AF009A87FF /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
+		9C598C981AD066AF009A87FF /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
+		9C8F72571AD0694800A0DCFE /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
+		9C8F72581AD0694800A0DCFE /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
+		9C8F725A1AD070E000A0DCFE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9CC739E21ACF1C9400DD47C6 /* TabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC739E61ACF1C9400DD47C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CC739E71ACF1C9400DD47C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8F725B1AD070E000A0DCFE /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,7 @@
 		9CC739D91ACF1C9400DD47C6 = {
 			isa = PBXGroup;
 			children = (
+				9C8F725A1AD070E000A0DCFE /* CoreData.framework */,
 				9CC739E41ACF1C9400DD47C6 /* TabApp */,
 				9CC73A011ACF1C9400DD47C6 /* TabAppTests */,
 				9CC739E31ACF1C9400DD47C6 /* Products */,
@@ -90,6 +100,10 @@
 				9CC739ED1ACF1C9400DD47C6 /* FirstViewController.m */,
 				9CC739EF1ACF1C9400DD47C6 /* SecondViewController.h */,
 				9CC739F01ACF1C9400DD47C6 /* SecondViewController.m */,
+				9C598C971AD066AF009A87FF /* FourthViewController.h */,
+				9C598C981AD066AF009A87FF /* FourthViewController.m */,
+				9C8F72571AD0694800A0DCFE /* FifthViewController.h */,
+				9C8F72581AD0694800A0DCFE /* FifthViewController.m */,
 				9CC739F21ACF1C9400DD47C6 /* Main.storyboard */,
 				9CC739F51ACF1C9400DD47C6 /* Images.xcassets */,
 				9CC739F71ACF1C9400DD47C6 /* LaunchScreen.xib */,
@@ -224,7 +238,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8F72591AD0694800A0DCFE /* FifthViewController.m in Sources */,
 				9CC739F11ACF1C9400DD47C6 /* SecondViewController.m in Sources */,
+				9C598C991AD066AF009A87FF /* FourthViewController.m in Sources */,
 				9CC739EB1ACF1C9400DD47C6 /* AppDelegate.m in Sources */,
 				9CC739EE1ACF1C9400DD47C6 /* FirstViewController.m in Sources */,
 				9CC739E81ACF1C9400DD47C6 /* main.m in Sources */,
@@ -418,6 +434,7 @@
 				9CC73A0A1ACF1C9500DD47C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CC73A0B1ACF1C9500DD47C6 /* Build configuration list for PBXNativeTarget "TabAppTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +443,7 @@
 				9CC73A0D1ACF1C9500DD47C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
