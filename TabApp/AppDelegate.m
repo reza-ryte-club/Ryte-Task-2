@@ -54,6 +54,14 @@
 - (void)saveContext{
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    Tasks *tasks = [NSEntityDescription
+                                      insertNewObjectForEntityForName:@"Tasks"
+                                      inManagedObjectContext:managedObjectContext];
+    tasks.topic = @"Third World War";
+    tasks.course = @"English 101";
+    tasks.teacher = @"Yamamoto Takeshi";
+
+    
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
