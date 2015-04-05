@@ -9,6 +9,7 @@
 #import "NewViewController.h"
 #import "Tasks.h"
 #import "AppDelegate.h"
+#import "FirstViewController.h"
 #import <CoreData/CoreData.h>
 
 @interface NewViewController ()
@@ -85,6 +86,9 @@
         _TeacherTextField.text = @"";
 
         
+        
+        FirstViewController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+        [self presentViewController:controller animated:YES completion:nil];
         
         
         
