@@ -1,22 +1,23 @@
 //
-//  FourthViewController.m
+//  NewViewController.m
 //  TabApp
 //
 //  Created by RahmanMd. Rezaur on 4/5/15.
 //  Copyright (c) 2015 Apress. All rights reserved.
 //
 
-#import "FourthViewController.h"
-#import "AppDelegate.h"
-@interface FourthViewController ()
+#import "NewViewController.h"
+
+@interface NewViewController ()
 
 @end
 
-@implementation FourthViewController
+@implementation NewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"New");
 }
 
 - (void)didReceiveMemoryWarning {

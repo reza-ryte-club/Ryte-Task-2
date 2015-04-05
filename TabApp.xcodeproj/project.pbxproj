@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C598C991AD066AF009A87FF /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C598C981AD066AF009A87FF /* FourthViewController.m */; };
-		9C8F72591AD0694800A0DCFE /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F72581AD0694800A0DCFE /* FifthViewController.m */; };
 		9C8F725B1AD070E000A0DCFE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8F725A1AD070E000A0DCFE /* CoreData.framework */; };
 		9C8F725E1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F725C1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld */; };
 		9CC739E81ACF1C9400DD47C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC739E71ACF1C9400DD47C6 /* main.m */; };
@@ -20,6 +18,8 @@
 		9CC739F91ACF1C9400DD47C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC739F71ACF1C9400DD47C6 /* LaunchScreen.xib */; };
 		9CC73A051ACF1C9500DD47C6 /* TabAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC73A041ACF1C9500DD47C6 /* TabAppTests.m */; };
 		9CCD254D1AD09BA300414614 /* Tasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD254C1AD09BA300414614 /* Tasks.m */; };
+		9CCD25531AD12C6700414614 /* UpcomingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD25521AD12C6700414614 /* UpcomingViewController.m */; };
+		9CCD25561AD12EB300414614 /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD25551AD12EB300414614 /* NewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +33,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C598C971AD066AF009A87FF /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
-		9C598C981AD066AF009A87FF /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
-		9C8F72571AD0694800A0DCFE /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
-		9C8F72581AD0694800A0DCFE /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
 		9C8F725A1AD070E000A0DCFE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9C8F725D1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core_Data_Persistence.xcdatamodel; sourceTree = "<group>"; };
 		9CC739E21ACF1C9400DD47C6 /* TabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +52,10 @@
 		9CC73A041ACF1C9500DD47C6 /* TabAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabAppTests.m; sourceTree = "<group>"; };
 		9CCD254B1AD09BA300414614 /* Tasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tasks.h; sourceTree = "<group>"; };
 		9CCD254C1AD09BA300414614 /* Tasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tasks.m; sourceTree = "<group>"; };
+		9CCD25511AD12C6700414614 /* UpcomingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingViewController.h; sourceTree = "<group>"; };
+		9CCD25521AD12C6700414614 /* UpcomingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingViewController.m; sourceTree = "<group>"; };
+		9CCD25541AD12EB300414614 /* NewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
+		9CCD25551AD12EB300414614 /* NewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +105,10 @@
 				9CC739ED1ACF1C9400DD47C6 /* FirstViewController.m */,
 				9CC739EF1ACF1C9400DD47C6 /* SecondViewController.h */,
 				9CC739F01ACF1C9400DD47C6 /* SecondViewController.m */,
-				9C598C971AD066AF009A87FF /* FourthViewController.h */,
-				9C598C981AD066AF009A87FF /* FourthViewController.m */,
-				9C8F72571AD0694800A0DCFE /* FifthViewController.h */,
-				9C8F72581AD0694800A0DCFE /* FifthViewController.m */,
+				9CCD25511AD12C6700414614 /* UpcomingViewController.h */,
+				9CCD25521AD12C6700414614 /* UpcomingViewController.m */,
+				9CCD25541AD12EB300414614 /* NewViewController.h */,
+				9CCD25551AD12EB300414614 /* NewViewController.m */,
 				9CC739F21ACF1C9400DD47C6 /* Main.storyboard */,
 				9C8F725C1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld */,
 				9CCD254B1AD09BA300414614 /* Tasks.h */,
@@ -247,13 +247,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CCD254D1AD09BA300414614 /* Tasks.m in Sources */,
-				9C8F72591AD0694800A0DCFE /* FifthViewController.m in Sources */,
 				9C8F725E1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld in Sources */,
 				9CC739F11ACF1C9400DD47C6 /* SecondViewController.m in Sources */,
-				9C598C991AD066AF009A87FF /* FourthViewController.m in Sources */,
 				9CC739EB1ACF1C9400DD47C6 /* AppDelegate.m in Sources */,
 				9CC739EE1ACF1C9400DD47C6 /* FirstViewController.m in Sources */,
+				9CCD25531AD12C6700414614 /* UpcomingViewController.m in Sources */,
 				9CC739E81ACF1C9400DD47C6 /* main.m in Sources */,
+				9CCD25561AD12EB300414614 /* NewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

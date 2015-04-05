@@ -9,10 +9,9 @@
 #import "AppDelegate.h"
 #import "Tasks.h"
 #import <CoreData/CoreData.h>
-#import "FifthViewController.h"
-#import "FirstViewController.h"
 #import "SecondViewController.h"
-#import "FifthViewController.h"
+
+#import "UpcomingViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,12 +29,12 @@
     NSError *error = nil;
     
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    Tasks *tasks = [NSEntityDescription
-                    insertNewObjectForEntityForName:@"Tasks"
-                    inManagedObjectContext:managedObjectContext];
-    tasks.topic = @"Fourth World War";
-    tasks.course = @"English 101";
-    tasks.teacher = @"Yamamoto Takeshi";
+ //   Tasks *tasks = [NSEntityDescription
+ //                   insertNewObjectForEntityForName:@"Tasks"
+   //                 inManagedObjectContext:managedObjectContext];
+//    tasks.topic = @"Fifth World War";
+  //  tasks.course = @"English 101";
+    //tasks.teacher = @"Yamamoto Takeshi";
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];

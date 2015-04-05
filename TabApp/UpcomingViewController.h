@@ -1,5 +1,5 @@
 //
-//  FifthViewController.h
+//  UpcomingViewController.h
 //  TabApp
 //
 //  Created by RahmanMd. Rezaur on 4/5/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FifthViewController : UIViewController
+@interface UpcomingViewController : UIViewController
 
 @end

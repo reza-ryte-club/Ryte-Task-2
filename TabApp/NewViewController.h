@@ -1,5 +1,5 @@
 //
-//  FourthViewController.h
+//  NewViewController.h
 //  TabApp
 //
 //  Created by RahmanMd. Rezaur on 4/5/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FourthViewController : UIViewController
+@interface NewViewController : UIViewController
 
 @end
