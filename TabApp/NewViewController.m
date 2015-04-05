@@ -7,6 +7,9 @@
 //
 
 #import "NewViewController.h"
+#import "Tasks.h"
+#import "AppDelegate.h"
+#import <CoreData/CoreData.h>
 
 @interface NewViewController ()
 
@@ -25,14 +28,68 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (IBAction)AddNewTask:(UIButton *)sender {
+    NSString *topic = _TopicTextField.text;
+    NSString *course = _CourseTextField.text;
+    NSString *teacher = _TeacherTextField.text;
+    NSDate *due_date = _DueDatePicker.date;
+    
+    
+    
+    if(topic.length==0){
+        UIAlertView * alert = [[UIAlertView alloc]
+    initWithTitle:@"Ryte Task!" message:@"Please mention the topic"
+    delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+    [alert show];
+        //NSLog(@"%@ -- %@ -- %@ -- %@",topic,teacher,course,due_date);
+    }
+    else{
+        
+        
+    NSError *error = nil;
+        AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
+        
+        
+        
+    Tasks *tasks = [NSEntityDescription
+                    insertNewObjectForEntityForName:@"Tasks"
+        inManagedObjectContext:managedObjectContext];
+        tasks.topic = topic;
+        tasks.course = course;
+        tasks.teacher = teacher;
+        tasks.due_date = due_date;
+        NSLog(@"Hei");
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+                                                  inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        for (Tasks *task in fetchedObjects) {
+            NSLog(@"Topic: %@", task.topic);
+        }
+        if (![managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+
+
+        
+        
+        
+        
+    
+    
+    }
+    
+    
+    
+    
 }
-*/
+
+
+
 
 @end

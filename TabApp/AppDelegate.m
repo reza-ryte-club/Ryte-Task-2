@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "Tasks.h"
 #import <CoreData/CoreData.h>
+#import "NewViewController.h"
+#import "FirstViewController.h"
 #import "SecondViewController.h"
-
 #import "UpcomingViewController.h"
 
 @interface AppDelegate ()
@@ -29,14 +30,15 @@
     NSError *error = nil;
     
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
- //   Tasks *tasks = [NSEntityDescription
- //                   insertNewObjectForEntityForName:@"Tasks"
-   //                 inManagedObjectContext:managedObjectContext];
-//    tasks.topic = @"Fifth World War";
-  //  tasks.course = @"English 101";
-    //tasks.teacher = @"Yamamoto Takeshi";
+
+    /*Tasks *tasks = [NSEntityDescription
+                    insertNewObjectForEntityForName:@"Tasks"
+                    inManagedObjectContext:managedObjectContext];
+    tasks.topic = @"Steve Jobs2";
+    tasks.course = @"English 101";
+    tasks.teacher = @"Yamamoto Takeshi";
     
-    
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                               inManagedObjectContext:managedObjectContext];
@@ -51,7 +53,7 @@
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     
-    
+    */
     return YES;
 }
 
