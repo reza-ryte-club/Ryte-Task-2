@@ -75,6 +75,19 @@
             NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
         }
 
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ryte Task" message:@"Task saved"
+                                                        delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        
+        
+        _TopicTextField.text = @"";
+        _CourseTextField.text = @"";
+        _TeacherTextField.text = @"";
+
+        
+        
+        
+        
 
         
         
