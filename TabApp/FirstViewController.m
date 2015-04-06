@@ -20,7 +20,7 @@
 @property (retain,nonatomic) NSMutableArray *tasklist;
 @property (retain,nonatomic) NSMutableArray *courselist;
 @property (retain,nonatomic) NSMutableArray *teacherlist;
-//@property (retain,nonatomic) NSMutableArray *datelist;
+@property (retain,nonatomic) NSMutableArray *datelist;
 
 
 
@@ -33,6 +33,7 @@
     self.tasklist = [[NSMutableArray alloc] init];
     self.courselist = [[NSMutableArray alloc] init];
     self.teacherlist = [[NSMutableArray alloc] init];
+    self.datelist = [[NSMutableArray alloc] init];
     
     //start of fetching
     NSError *error = nil;
@@ -50,7 +51,20 @@
         [self.tasklist addObject:task.topic ];
         [self.courselist addObject:task.course];
         [self.teacherlist addObject:task.teacher];
-       // [self.teacherlist addObject:task.due_date];
+        
+//         NSString *displayString = [NSDate stringForDisplayFromDate:task.due_date];
+        
+       
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM dd, yyyy HH:mm"];
+        
+        NSString *stringFromDate = [formatter stringFromDate:task.due_date];
+        
+        
+        
+        
+        
+        [self.datelist addObject:stringFromDate];
         
     }
     
@@ -114,6 +128,7 @@
     cell.topicLabel.text = [_tasklist objectAtIndex:(count-1-row)];
     cell.courseLabel.text = [_courselist objectAtIndex:(count-1-row)];
     cell.teacherLabel.text =[_teacherlist objectAtIndex:(count-1-row)];
+    cell.dateLabel.text =[ _datelist objectAtIndex:(count-1-row)];
     
 
 
