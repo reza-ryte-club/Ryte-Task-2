@@ -15,6 +15,7 @@
 
 
 
+
 @interface FirstViewController ()
 @property (copy, nonatomic) NSArray *dwarves;
 @property (retain,nonatomic) NSMutableArray *tasklist;
@@ -51,18 +52,13 @@
         [self.tasklist addObject:task.topic ];
         [self.courselist addObject:task.course];
         [self.teacherlist addObject:task.teacher];
-        
-//         NSString *displayString = [NSDate stringForDisplayFromDate:task.due_date];
-        
+
+  
        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM dd, yyyy HH:mm"];
         
         NSString *stringFromDate = [formatter stringFromDate:task.due_date];
-        
-        
-        
-        
         
         [self.datelist addObject:stringFromDate];
         
