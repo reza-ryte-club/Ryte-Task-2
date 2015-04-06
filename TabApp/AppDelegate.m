@@ -27,9 +27,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSError *error = nil;
+ //   NSError *error = nil;
     
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+   // NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
 
     /*Tasks *tasks = [NSEntityDescription
                     insertNewObjectForEntityForName:@"Tasks"
