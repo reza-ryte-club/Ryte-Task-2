@@ -15,6 +15,8 @@
 @interface FirstViewController ()
 @property (copy, nonatomic) NSArray *dwarves;
 @property (retain,nonatomic) NSMutableArray *tasklist;
+@property (retain,nonatomic) NSMutableArray *courselist;
+@property (retain,nonatomic) NSMutableArray *teacherlist;
 
 @end
 
@@ -22,19 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-        NSLog(@"Hello World");
-    self.dwarves = @[@"Sleepy", @"Sneezy", @"Bashful", @"Happy",
-                     @"Doc", @"Grumpy", @"Dopey",
-                     @"Thorin", @"Dorin", @"Nori", @"Ori",
-                     @"Balin", @"Dwalin", @"Fili", @"Kili",
-                     @"Oin", @"Gloin", @"Bifur", @"Bofur",
-                     @"Bombur"];
-  
-    
        self.tasklist = [[NSMutableArray alloc] init];
-
-    
+       self.courselist = [[NSMutableArray alloc] init];
+       self.teacherlist = [[NSMutableArray alloc] init];
     
     //start of fetching
     NSError *error = nil;
@@ -50,28 +42,13 @@
     for (Tasks *task in fetchedObjects) {
 
         [self.tasklist addObject:task.topic ];
+        [self.courselist addObject:task.course];
+        [self.teacherlist addObject:task.teacher];
     }
     
     
     
     //end of fetching
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -113,12 +90,18 @@
                              SimpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
+                initWithStyle:UITableViewCellStyleSubtitle
                 reuseIdentifier:SimpleTableIdentifier];
     }
-//    cell.textLabel.text = self.dwarves[indexPath.row];
-     cell.textLabel.text = self.tasklist[indexPath.row];
-    NSLog(@"Boo");
+    
+    //in order to reverse the list
+    NSUInteger row = [indexPath row];
+    NSUInteger count = [_tasklist count];
+    
+    
+    cell.textLabel.text = [_tasklist objectAtIndex:(count-1-row)];
+    cell.detailTextLabel.text = [_courselist objectAtIndex:(count-1-row)];
+//    cell.detailTextLabel.text = @"Mr. Disney";
     
     return cell;
     
