@@ -20,6 +20,8 @@
 		9CCD254D1AD09BA300414614 /* Tasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD254C1AD09BA300414614 /* Tasks.m */; };
 		9CCD25531AD12C6700414614 /* UpcomingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD25521AD12C6700414614 /* UpcomingViewController.m */; };
 		9CCD25561AD12EB300414614 /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD25551AD12EB300414614 /* NewViewController.m */; };
+		9CF7CE9E1AD2A07800E557A6 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7CE9D1AD2A07800E557A6 /* SimpleTableCell.xib */; };
+		9CF7CEA11AD2A1A600E557A6 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7CEA01AD2A1A600E557A6 /* SimpleTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,9 @@
 		9CCD25521AD12C6700414614 /* UpcomingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingViewController.m; sourceTree = "<group>"; };
 		9CCD25541AD12EB300414614 /* NewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
 		9CCD25551AD12EB300414614 /* NewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
+		9CF7CE9D1AD2A07800E557A6 /* SimpleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
+		9CF7CE9F1AD2A1A600E557A6 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
+		9CF7CEA01AD2A1A600E557A6 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,9 @@
 				9CCD25551AD12EB300414614 /* NewViewController.m */,
 				9CC739F21ACF1C9400DD47C6 /* Main.storyboard */,
 				9C8F725C1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld */,
+				9CF7CE9D1AD2A07800E557A6 /* SimpleTableCell.xib */,
+				9CF7CE9F1AD2A1A600E557A6 /* SimpleTableCell.h */,
+				9CF7CEA01AD2A1A600E557A6 /* SimpleTableCell.m */,
 				9CCD254B1AD09BA300414614 /* Tasks.h */,
 				9CCD254C1AD09BA300414614 /* Tasks.m */,
 				9CC739F51ACF1C9400DD47C6 /* Images.xcassets */,
@@ -228,6 +236,7 @@
 			files = (
 				9CC739F41ACF1C9400DD47C6 /* Main.storyboard in Resources */,
 				9CC739F91ACF1C9400DD47C6 /* LaunchScreen.xib in Resources */,
+				9CF7CE9E1AD2A07800E557A6 /* SimpleTableCell.xib in Resources */,
 				9CC739F61ACF1C9400DD47C6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +257,7 @@
 			files = (
 				9CCD254D1AD09BA300414614 /* Tasks.m in Sources */,
 				9C8F725E1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld in Sources */,
+				9CF7CEA11AD2A1A600E557A6 /* SimpleTableCell.m in Sources */,
 				9CC739F11ACF1C9400DD47C6 /* SecondViewController.m in Sources */,
 				9CC739EB1ACF1C9400DD47C6 /* AppDelegate.m in Sources */,
 				9CC739EE1ACF1C9400DD47C6 /* FirstViewController.m in Sources */,

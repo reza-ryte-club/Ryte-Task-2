@@ -9,6 +9,9 @@
 #import "FirstViewController.h"
 #import "AppDelegate.h"
 #import "Tasks.h"
+#import "SimpleTableCell.h"
+
+
 
 
 
@@ -17,6 +20,9 @@
 @property (retain,nonatomic) NSMutableArray *tasklist;
 @property (retain,nonatomic) NSMutableArray *courselist;
 @property (retain,nonatomic) NSMutableArray *teacherlist;
+//@property (retain,nonatomic) NSMutableArray *datelist;
+
+
 
 @end
 
@@ -24,15 +30,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-       self.tasklist = [[NSMutableArray alloc] init];
-       self.courselist = [[NSMutableArray alloc] init];
-       self.teacherlist = [[NSMutableArray alloc] init];
+    self.tasklist = [[NSMutableArray alloc] init];
+    self.courselist = [[NSMutableArray alloc] init];
+    self.teacherlist = [[NSMutableArray alloc] init];
     
     //start of fetching
     NSError *error = nil;
     AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
-   
+    
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
@@ -40,10 +46,12 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     for (Tasks *task in fetchedObjects) {
-
+        
         [self.tasklist addObject:task.topic ];
         [self.courselist addObject:task.course];
         [self.teacherlist addObject:task.teacher];
+       // [self.teacherlist addObject:task.due_date];
+        
     }
     
     
@@ -55,10 +63,16 @@
     
     
     UITableView *tableView = (id)[self.view viewWithTag:1];
+    
+    
+    
+    
+    
+    
     UIEdgeInsets contentInset = tableView.contentInset;
     contentInset.top = 20;
     [tableView setContentInset:contentInset];
-
+    
     
     
     
@@ -74,8 +88,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-
-//    return [self.dwarves count];
+    //    return [self.dwarves count];
     return [self.tasklist count];
 }
 
@@ -85,24 +98,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *SimpleTableIdentifier = @"SimpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                             SimpleTableIdentifier];
+    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    SimpleTableCell *cell = (SimpleTableCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleSubtitle
-                reuseIdentifier:SimpleTableIdentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
-    //in order to reverse the list
+    
+
+
     NSUInteger row = [indexPath row];
     NSUInteger count = [_tasklist count];
     
+    cell.topicLabel.text = [_tasklist objectAtIndex:(count-1-row)];
+    cell.courseLabel.text = [_courselist objectAtIndex:(count-1-row)];
+    cell.teacherLabel.text =[_teacherlist objectAtIndex:(count-1-row)];
     
-    cell.textLabel.text = [_tasklist objectAtIndex:(count-1-row)];
-    cell.detailTextLabel.text = [_courselist objectAtIndex:(count-1-row)];
-//    cell.detailTextLabel.text = @"Mr. Disney";
-    
+
+
     return cell;
     
 }
