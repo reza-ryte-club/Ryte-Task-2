@@ -10,6 +10,8 @@
 	<string>TabApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>4099C8052EE7ABC80938CE060D9B759272FE60A4</key>
+		<string>https://github.com/MortimerGoro/MGSwipeTableCell.git</string>
 		<key>D412E91821631861B1B645DE4A73315F1AA15B40</key>
 		<string>https://github.com/reza-ryte-club/Ryte-Task-2.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>TabApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>4099C8052EE7ABC80938CE060D9B759272FE60A4</key>
+		<string>../../../MGSwipeTableCell</string>
 		<key>D412E91821631861B1B645DE4A73315F1AA15B40</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>D412E91821631861B1B645DE4A73315F1AA15B40</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4099C8052EE7ABC80938CE060D9B759272FE60A4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MGSwipeTableCell</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "MGSwipeTableCell.h"
+@interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
 
 
 

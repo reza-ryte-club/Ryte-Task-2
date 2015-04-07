@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C025D6A1AD3F750001D6B21 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C025D671AD3F750001D6B21 /* MGSwipeButton.m */; };
+		9C025D6B1AD3F750001D6B21 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C025D691AD3F750001D6B21 /* MGSwipeTableCell.m */; };
+		9C025D6E1AD3FC76001D6B21 /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C025D6D1AD3FC76001D6B21 /* TestData.m */; };
 		9C8F725B1AD070E000A0DCFE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8F725A1AD070E000A0DCFE /* CoreData.framework */; };
 		9C8F725E1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F725C1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld */; };
 		9CC739E81ACF1C9400DD47C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC739E71ACF1C9400DD47C6 /* main.m */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C025D661AD3F750001D6B21 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		9C025D671AD3F750001D6B21 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		9C025D681AD3F750001D6B21 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		9C025D691AD3F750001D6B21 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		9C025D6C1AD3FC76001D6B21 /* TestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestData.h; sourceTree = "<group>"; };
+		9C025D6D1AD3FC76001D6B21 /* TestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestData.m; sourceTree = "<group>"; };
 		9C8F725A1AD070E000A0DCFE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9C8F725D1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core_Data_Persistence.xcdatamodel; sourceTree = "<group>"; };
 		9CC739E21ACF1C9400DD47C6 /* TabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,9 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C025D651AD3F750001D6B21 /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				9C025D661AD3F750001D6B21 /* MGSwipeButton.h */,
+				9C025D671AD3F750001D6B21 /* MGSwipeButton.m */,
+				9C025D681AD3F750001D6B21 /* MGSwipeTableCell.h */,
+				9C025D691AD3F750001D6B21 /* MGSwipeTableCell.m */,
+			);
+			name = MGSwipeTableCell;
+			path = ../MGSwipeTableCell/MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
 		9CC739D91ACF1C9400DD47C6 = {
 			isa = PBXGroup;
 			children = (
+				9C025D651AD3F750001D6B21 /* MGSwipeTableCell */,
 				9C8F725A1AD070E000A0DCFE /* CoreData.framework */,
 				9CC739E41ACF1C9400DD47C6 /* TabApp */,
 				9CC73A011ACF1C9400DD47C6 /* TabAppTests */,
@@ -121,6 +143,8 @@
 				9CF7CEA01AD2A1A600E557A6 /* SimpleTableCell.m */,
 				9CCD254B1AD09BA300414614 /* Tasks.h */,
 				9CCD254C1AD09BA300414614 /* Tasks.m */,
+				9C025D6C1AD3FC76001D6B21 /* TestData.h */,
+				9C025D6D1AD3FC76001D6B21 /* TestData.m */,
 				9CC739F51ACF1C9400DD47C6 /* Images.xcassets */,
 				9CC739F71ACF1C9400DD47C6 /* LaunchScreen.xib */,
 				9CC739E51ACF1C9400DD47C6 /* Supporting Files */,
@@ -257,9 +281,12 @@
 			files = (
 				9CCD254D1AD09BA300414614 /* Tasks.m in Sources */,
 				9C8F725E1AD07AAE00A0DCFE /* Core_Data_Persistence.xcdatamodeld in Sources */,
+				9C025D6A1AD3F750001D6B21 /* MGSwipeButton.m in Sources */,
+				9C025D6B1AD3F750001D6B21 /* MGSwipeTableCell.m in Sources */,
 				9CF7CEA11AD2A1A600E557A6 /* SimpleTableCell.m in Sources */,
 				9CC739F11ACF1C9400DD47C6 /* SecondViewController.m in Sources */,
 				9CC739EB1ACF1C9400DD47C6 /* AppDelegate.m in Sources */,
+				9C025D6E1AD3FC76001D6B21 /* TestData.m in Sources */,
 				9CC739EE1ACF1C9400DD47C6 /* FirstViewController.m in Sources */,
 				9CCD25531AD12C6700414614 /* UpcomingViewController.m in Sources */,
 				9CC739E81ACF1C9400DD47C6 /* main.m in Sources */,
