@@ -9,12 +9,14 @@
 #import "SecondTableCell.h"
 #import "MGSwipeTableCell.h"
 #import "MGSwipeButton.h"
+#import "AppDelegate.h"
+#import  "tasks.h"
 
 @implementation SecondTableCell
 @synthesize topicLabel = _topicLabel;
 @synthesize courseLabel = _courseLabel;
 @synthesize teacherLabel = _teacherLabel;
-//@synthesize dateLabel = _dateLabel;
+@synthesize dateLabel = _dateLabel;
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -37,7 +39,28 @@
 +(NSMutableArray *) data
 {
     NSMutableArray * tests = [NSMutableArray array];
-    for (int i = 0; i < 6; ++i) {
+    
+
+    
+    
+    //start of fetching
+    NSError *error = nil;
+    AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+                                              inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    //end of fetching
+
+    
+    
+    
+    
+    for (int i = 0; i < fetchedObjects.count; ++i) {
         SecondTableCell * data = [[SecondTableCell alloc] init];
         data.transition = MGSwipeTransitionBorder;
         [tests addObject:data];

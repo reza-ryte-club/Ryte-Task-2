@@ -12,7 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *topicLabel;
 @property (strong, nonatomic) IBOutlet UILabel *courseLabel;
 @property (strong, nonatomic) IBOutlet UILabel *teacherLabel;
-//@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (nonatomic) MGSwipeTransition transition;
 +(NSMutableArray*) data;
 

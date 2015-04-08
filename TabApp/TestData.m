@@ -25,7 +25,7 @@
 +(NSMutableArray *) data
 {
     NSMutableArray * tests = [NSMutableArray array];
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 2; ++i) {
                 TestData * data = [[TestData alloc] init];
                 data.transition = MGSwipeTransitionBorder;
                 [tests addObject:data];

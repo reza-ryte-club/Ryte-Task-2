@@ -4,8 +4,14 @@
 #import "AppDelegate.h"
 #import "TestData.h"
 #import "MGSwipeButton.h"
+#import "Tasks.h"
 #import "SecondTableCell.h"
 @interface SecondViewController ()
+@property (retain,nonatomic) NSMutableArray *tasklist;
+@property (retain,nonatomic) NSMutableArray *courselist;
+@property (retain,nonatomic) NSMutableArray *teacherlist;
+@property (retain,nonatomic) NSMutableArray *datelist;
+
 @end
 
 #define TEST_USE_MG_DELEGATE 1
@@ -39,8 +45,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tasklist = [[NSMutableArray alloc] init];
+    self.courselist = [[NSMutableArray alloc] init];
+    self.teacherlist = [[NSMutableArray alloc] init];
+    self.datelist = [[NSMutableArray alloc] init];
+    //start of fetching
+    NSError *error = nil;
+    AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+                                              inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (Tasks *task in fetchedObjects) {
+        
+        [self.tasklist addObject:task.topic ];
+        [self.courselist addObject:task.course];
+        [self.teacherlist addObject:task.teacher];
+        
+        
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM dd, yyyy HH:mm"];
+        
+        NSString *stringFromDate = [formatter stringFromDate:task.due_date];
+        
+        [self.datelist addObject:stringFromDate];
+        
+    }
+    
+    
+    //end of fetching
+    
+    
+    
+    
+
     // Do any additional setup after loading the view, typically from a nib.
-    tests = [TestData data];
+    tests = [SecondTableCell data];
     
 
     self.title = @"Completed";
@@ -153,12 +198,14 @@
         }
     }
     
-
+    NSUInteger row = [indexPath row];
+    NSUInteger count = [_tasklist count];
     
-//   cell.textLabel.text = data.title;
-//    cell.textLabel.font = [UIFont systemFontOfSize:16];
-//    cell.detailTextLabel.text = data.detailTitle;
-//    cell.topicLabel.text = @"book";
+    cell.topicLabel.text = [_tasklist objectAtIndex:(count-1-row)];
+    cell.courseLabel.text = [_courselist objectAtIndex:(count-1-row)];
+    cell.teacherLabel.text =[_teacherlist objectAtIndex:(count-1-row)];
+    cell.dateLabel.text =[ _datelist objectAtIndex:(count-1-row)];
+
 
 
 //    cell.accessoryType = accessory;
@@ -181,7 +228,7 @@
 -(NSArray*) swipeTableCell:(SecondTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
              swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings;
 {
-    TestData * data = [tests objectAtIndex:[_tableView indexPathForCell:cell].row];
+    SecondTableCell * data = [tests objectAtIndex:[_tableView indexPathForCell:cell].row];
     swipeSettings.transition = data.transition;
     
     
