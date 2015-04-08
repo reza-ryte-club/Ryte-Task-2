@@ -27,33 +27,33 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- //   NSError *error = nil;
+    //   NSError *error = nil;
     
-   // NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-
+    // NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    
     /*Tasks *tasks = [NSEntityDescription
-                    insertNewObjectForEntityForName:@"Tasks"
-                    inManagedObjectContext:managedObjectContext];
-    tasks.topic = @"Steve Jobs2";
-    tasks.course = @"English 101";
-    tasks.teacher = @"Yamamoto Takeshi";
-    
-
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
-                                              inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    for (Tasks *task in fetchedObjects) {
-        NSLog(@"Topic: %@", task.topic);
-    }
-
-
-    if (![managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    
-    */
+     insertNewObjectForEntityForName:@"Tasks"
+     inManagedObjectContext:managedObjectContext];
+     tasks.topic = @"Steve Jobs2";
+     tasks.course = @"English 101";
+     tasks.teacher = @"Yamamoto Takeshi";
+     
+     
+     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+     inManagedObjectContext:managedObjectContext];
+     [fetchRequest setEntity:entity];
+     NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+     for (Tasks *task in fetchedObjects) {
+     NSLog(@"Topic: %@", task.topic);
+     }
+     
+     
+     if (![managedObjectContext save:&error]) {
+     NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+     }
+     
+     */
     return YES;
 }
 
@@ -128,8 +128,8 @@
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
- 
- 
+
+
 
 
 // Returns the persistent store coordinator for the application.

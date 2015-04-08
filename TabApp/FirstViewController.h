@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MGSwipeTableCell.h"
-@interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
-
-
-
+@interface FirstViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate,UISearchDisplayDelegate>
+@property (nonatomic, assign) BOOL testingStoryboardCell;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 

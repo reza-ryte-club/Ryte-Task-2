@@ -19,6 +19,10 @@
 @implementation SecondViewController
 {
       NSMutableArray * tests;
+    
+    
+    
+ 
 }
 
 -(void) cancelTableEditClick: (id) sender
@@ -68,48 +72,27 @@
         [self.courselist addObject:task.course];
         [self.teacherlist addObject:task.teacher];
         
-        
-        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM dd, yyyy HH:mm"];
-        
         NSString *stringFromDate = [formatter stringFromDate:task.due_date];
-        
         [self.datelist addObject:stringFromDate];
-        
     }
-    
-    
     //end of fetching
-    
-    
     
     
 
     // Do any additional setup after loading the view, typically from a nib.
     tests = [SecondTableCell data];
-    
-
-    self.title = @"Completed";
-    
-
+        self.title = @"Completed";
     //This shows the content
-   
-    if (!_testingStoryboardCell) {
+       if (!_testingStoryboardCell) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [self.view addSubview:_tableView];
-
-        
-    }
+}
     
-
-
-
-
-
 }
 
 
@@ -183,6 +166,8 @@
          * Test using storyboard and prototype cell that uses autolayout
          **/
         cell = [_tableView dequeueReusableCellWithIdentifier:@"SecondTableCell"];
+        int height = cell.frame.size.height ;
+        NSLog(@"Height %d",height);
     }
     else {
         /**
@@ -195,6 +180,8 @@
             
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SecondTableCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
+            int height = cell.frame.size.height ;
+                    NSLog(@"Height2 %d",height);
             
             
         }
@@ -251,7 +238,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    return 109;
 }
 
 -(BOOL) swipeTableCell:(SecondTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion
