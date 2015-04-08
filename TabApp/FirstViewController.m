@@ -1,11 +1,11 @@
-//  SecondViewController.m
+//  FirstViewController.m
 
 #import "FirstViewController.h"
 #import "AppDelegate.h"
 #import "TestData.h"
 #import "MGSwipeButton.h"
 #import "Tasks.h"
-#import "SecondTableCell.h"
+#import "FirstTableCell.h"
 @interface FirstViewController ()
 @property (retain,nonatomic) NSMutableArray *tasklist;
 @property (retain,nonatomic) NSMutableArray *courselist;
@@ -82,8 +82,8 @@
     
     
     // Do any additional setup after loading the view, typically from a nib.
-    tests = [SecondTableCell data];
-    self.title = @"Completed";
+    tests = [FirstTableCell data];
+    self.title = @"Pending";
     //This shows the content
     if (!_testingStoryboardCell) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -159,13 +159,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SecondTableCell * cell;
+    FirstTableCell * cell;
     
     if (_testingStoryboardCell) {
         /**
          * Test using storyboard and prototype cell that uses autolayout
          **/
-        cell = [_tableView dequeueReusableCellWithIdentifier:@"SecondTableCell"];
+        cell = [_tableView dequeueReusableCellWithIdentifier:@"FirstTableCell"];
         int height = cell.frame.size.height ;
         NSLog(@"Height %d",height);
     }
@@ -173,12 +173,12 @@
         /**
          * Test using programmatically created cells
          **/
-        static NSString * reuseIdentifier = @"SecondTableCell";
+        static NSString * reuseIdentifier = @"FirstTableCell";
         cell = [_tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
         if (!cell) {
-            //cell = [[SecondTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+            //cell = [[FirstTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
             
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SecondTableCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FirstTableCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             int height = cell.frame.size.height ;
             NSLog(@"Height2 %d",height);
@@ -214,10 +214,10 @@
 
 //This is important
 #if TEST_USE_MG_DELEGATE
--(NSArray*) swipeTableCell:(SecondTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
+-(NSArray*) swipeTableCell:(FirstTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
              swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings;
 {
-    SecondTableCell * data = [tests objectAtIndex:[_tableView indexPathForCell:cell].row];
+    FirstTableCell * data = [tests objectAtIndex:[_tableView indexPathForCell:cell].row];
     swipeSettings.transition = data.transition;
     
     
@@ -241,7 +241,7 @@
     return 109;
 }
 
--(BOOL) swipeTableCell:(SecondTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion
+-(BOOL) swipeTableCell:(FirstTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion
 {
     if (direction == MGSwipeDirectionRightToLeft && index == 0) {
         //delete button

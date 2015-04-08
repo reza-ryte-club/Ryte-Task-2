@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface UpcomingViewController : UIViewController
-
+#import "MGSwipeTableCell.h"
+@interface UpcomingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate,UISearchDisplayDelegate>
+@property (nonatomic, assign) BOOL testingStoryboardCell;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
