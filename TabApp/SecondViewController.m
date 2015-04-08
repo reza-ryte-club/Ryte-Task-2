@@ -4,6 +4,7 @@
 #import "AppDelegate.h"
 #import "TestData.h"
 #import "MGSwipeButton.h"
+#import "SecondTableCell.h"
 @interface SecondViewController ()
 @end
 
@@ -40,6 +41,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     tests = [TestData data];
+    
+
     self.title = @"Completed";
     
 
@@ -51,8 +54,15 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [self.view addSubview:_tableView];
+
+        
     }
     
+
+
+
+
+
 }
 
 
@@ -68,11 +78,12 @@
 -(NSArray *) createRightButtons: (int) number
 {
     NSMutableArray * result = [NSMutableArray array];
-    NSString* titles[2] = {@"Delete", @"More"};
+    NSString* titles[2] = {@"Delete", @"Completed"};
     UIColor * colors[2] = {[UIColor redColor], [UIColor lightGrayColor]};
     for (int i = 0; i < number; ++i)
     {
-        MGSwipeButton * button = [MGSwipeButton buttonWithTitle:titles[i] backgroundColor:colors[i] callback:^BOOL(MGSwipeTableCell * sender){
+        MGSwipeButton * button =
+        [MGSwipeButton buttonWithTitle:titles[i] backgroundColor:colors[i] callback:^BOOL(MGSwipeTableCell * sender){
             NSLog(@"Convenience callback received (right).");
             BOOL autoHide = i != 0;
             return autoHide; //Don't autohide in delete button to improve delete expansion animation
@@ -118,30 +129,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MGSwipeTableCell * cell;
+    SecondTableCell * cell;
     
     if (_testingStoryboardCell) {
         /**
          * Test using storyboard and prototype cell that uses autolayout
          **/
-       // cell = [_tableView dequeueReusableCellWithIdentifier:@"prototypeCell"];
+        cell = [_tableView dequeueReusableCellWithIdentifier:@"SecondTableCell"];
     }
     else {
         /**
          * Test using programmatically created cells
          **/
-        static NSString * reuseIdentifier = @"programmaticCell";
+        static NSString * reuseIdentifier = @"SecondTableCell";
         cell = [_tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
         if (!cell) {
-            cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+            //cell = [[SecondTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+            
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SecondTableCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+            
+            
         }
     }
     
-    TestData * data = [tests objectAtIndex:indexPath.row];
+
     
-    cell.textLabel.text = data.title;
-    cell.textLabel.font = [UIFont systemFontOfSize:16];
-    cell.detailTextLabel.text = data.detailTitle;
+//   cell.textLabel.text = data.title;
+//    cell.textLabel.font = [UIFont systemFontOfSize:16];
+//    cell.detailTextLabel.text = data.detailTitle;
+//    cell.topicLabel.text = @"book";
+
+
 //    cell.accessoryType = accessory;
     cell.delegate = self;
 //    cell.allowsMultipleSwipe = allowMultipleSwipe;
@@ -159,7 +178,7 @@
 
 //This is important
 #if TEST_USE_MG_DELEGATE
--(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
+-(NSArray*) swipeTableCell:(SecondTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
              swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings;
 {
     TestData * data = [tests objectAtIndex:[_tableView indexPathForCell:cell].row];
@@ -186,7 +205,7 @@
     return 90;
 }
 
--(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion
+-(BOOL) swipeTableCell:(SecondTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion
 {
     if (direction == MGSwipeDirectionRightToLeft && index == 0) {
         //delete button
@@ -195,15 +214,12 @@
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
         return NO; //Don't autohide to improve delete expansion animation
     }
-/*
-    if (direction == MGSwipeDirectionLeftToRight && index == 0) {
-        //delete button
-        NSIndexPath * path = [_tableView indexPathForCell:cell];
-        [tests removeObjectAtIndex:path.row];
-        [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+    if (direction == MGSwipeDirectionRightToLeft && index == 1) {
+
+        NSLog(@"more");
         return NO; //Don't autohide to improve delete expansion animation
     }
- */
+    
     return YES;
 }
 
