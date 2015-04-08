@@ -49,6 +49,8 @@
     self.courselist = [[NSMutableArray alloc] init];
     self.teacherlist = [[NSMutableArray alloc] init];
     self.datelist = [[NSMutableArray alloc] init];
+
+    
     //start of fetching
     NSError *error = nil;
     AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -257,8 +259,45 @@
     if (direction == MGSwipeDirectionRightToLeft && index == 0) {
         //delete button
         NSIndexPath * path = [_tableView indexPathForCell:cell];
+
+        
+        
+        
+        //start of fetching
+        NSError *error = nil;
+        AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
+        
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+                                                  inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        NSUInteger count = [fetchedObjects count];
+
+        [managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
+        [managedObjectContext save:nil];
+        //end of fetching
+        
+        
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        
+        
+        
+
+        
+    
+        
+        
+        
+        
+        
+        
+        
         return NO; //Don't autohide to improve delete expansion animation
     }
     if (direction == MGSwipeDirectionRightToLeft && index == 1) {
