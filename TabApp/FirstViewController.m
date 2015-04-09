@@ -71,6 +71,8 @@
         [self.tasklist addObject:task.topic ];
         [self.courselist addObject:task.course];
         [self.teacherlist addObject:task.teacher];
+        NSLog(@"Is complete %@",task.isComplete);
+        NSLog(@"IsTrashed %@",task.isTrashed);
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM dd, yyyy HH:mm"];
@@ -194,6 +196,7 @@
     cell.courseLabel.text = [_courselist objectAtIndex:(count-1-row)];
     cell.teacherLabel.text =[_teacherlist objectAtIndex:(count-1-row)];
     cell.dateLabel.text =[ _datelist objectAtIndex:(count-1-row)];
+
     
     
     
@@ -241,14 +244,45 @@
     return 109;
 }
 
+
+
 -(BOOL) swipeTableCell:(FirstTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion
 {
     if (direction == MGSwipeDirectionRightToLeft && index == 0) {
         //delete button
         NSIndexPath * path = [_tableView indexPathForCell:cell];
+        //start of fetching
+        NSError *error = nil;
+        AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+                                                  inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
         
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
+        NSUInteger count = [fetchedObjects count];
         
+        Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
+        task.isTrashed = @"Yes";
+        
+        [managedObjectContext save:nil];
+        //end of fetching
+        
+        //remove the UI cell
+        [tests removeObjectAtIndex:path.row];
+        [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        return NO; //Don't autohide to improve delete expansion animation
+    }
+    
+    
+    
+    if (direction == MGSwipeDirectionRightToLeft && index == 1) {
+        
+        NSLog(@"more");
+        
+        NSIndexPath * path = [_tableView indexPathForCell:cell];
         
         //start of fetching
         NSError *error = nil;
@@ -260,36 +294,40 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+
+    //    NSString *topicName = Tasl
+        
+        
+        
+       // NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete 'Yes'"];
+       // [fetchRequest setPredicate:predicate];
+
+        
+        
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
         NSUInteger count = [fetchedObjects count];
         
-        [managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
+        Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
+        task.isComplete = @"Yes";
+      //  NSUInteger count = [fetchedObjects count];
+        
+        //[managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
+        
+        
+        
         [managedObjectContext save:nil];
         //end of fetching
         
         
+        
+        
+        
+        
+        //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        return NO; //Don't autohide to improve delete expansion animation
-    }
-    if (direction == MGSwipeDirectionRightToLeft && index == 1) {
-        
-        NSLog(@"more");
+
         return NO; //Don't autohide to improve delete expansion animation
     }
     

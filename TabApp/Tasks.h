@@ -16,5 +16,7 @@
 @property (nonatomic, retain) NSDate * due_date;
 @property (nonatomic, retain) NSString * teacher;
 @property (nonatomic, retain) NSString * topic;
+@property (nonatomic, retain) NSString * isTrashed;
+@property (nonatomic, retain) NSString * isComplete;
 
 @end

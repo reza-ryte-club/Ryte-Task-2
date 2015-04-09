@@ -290,6 +290,47 @@
     if (direction == MGSwipeDirectionRightToLeft && index == 1) {
         
         NSLog(@"more");
+        
+        NSIndexPath * path = [_tableView indexPathForCell:cell];
+        
+        //start of fetching
+        NSError *error = nil;
+        AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
+        
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+                                                  inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        
+        
+        
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        NSUInteger count = [fetchedObjects count];
+        
+        Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
+        task.isTrashed = @"No";
+                //  NSUInteger count = [fetchedObjects count];
+        
+        //[managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
+        
+        
+        
+        [managedObjectContext save:nil];
+        //end of fetching
+        
+        
+        
+        
+        
+        
+        //remove the UI cell
+        [tests removeObjectAtIndex:path.row];
+        [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        
         return NO; //Don't autohide to improve delete expansion animation
     }
     

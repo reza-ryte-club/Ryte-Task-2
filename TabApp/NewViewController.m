@@ -62,6 +62,10 @@
         tasks.course = course;
         tasks.teacher = teacher;
         tasks.due_date = due_date;
+        tasks.isComplete = @"No";
+        tasks.isTrashed = @"No";
+
+        
         NSLog(@"Hei");
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];

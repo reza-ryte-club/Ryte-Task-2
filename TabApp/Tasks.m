@@ -15,5 +15,8 @@
 @dynamic due_date;
 @dynamic teacher;
 @dynamic topic;
+@dynamic isTrashed;
+@dynamic isComplete;
+
 
 @end

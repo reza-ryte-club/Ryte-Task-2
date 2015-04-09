@@ -11,6 +11,7 @@
 #import "MGSwipeButton.h"
 #import "AppDelegate.h"
 #import  "tasks.h"
+#import <Foundation/Foundation.h>
 
 @implementation FirstTableCell
 @synthesize topicLabel = _topicLabel;
@@ -53,6 +54,15 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                               inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    
+  //  NSString *isComplete = @"No";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete MATCHES 'No' AND isTrashed MATCHES 'No'"];
+    [fetchRequest setPredicate:predicate];
+
+    
+    
+    
     NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     //end of fetching
 

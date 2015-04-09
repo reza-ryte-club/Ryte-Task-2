@@ -108,7 +108,7 @@
 -(NSArray *) createRightButtons: (int) number
 {
     NSMutableArray * result = [NSMutableArray array];
-    NSString* titles[2] = {@"Delete", @"Completed"};
+    NSString* titles[2] = {@"Delete", @"Pending"};
     UIColor * colors[2] = {[UIColor redColor], [UIColor lightGrayColor]};
     for (int i = 0; i < number; ++i)
     {
@@ -246,51 +246,61 @@
     if (direction == MGSwipeDirectionRightToLeft && index == 0) {
         //delete button
         NSIndexPath * path = [_tableView indexPathForCell:cell];
-
-        
-        
-        
         //start of fetching
         NSError *error = nil;
         AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
-        
-        
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
         NSUInteger count = [fetchedObjects count];
-
-        [managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
+        
+        Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
+        task.isTrashed = @"Yes";
+        
         [managedObjectContext save:nil];
         //end of fetching
         
-        
+        //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
-        
-        
-        
-        
-
-        
-    
-        
-        
-        
-        
-        
-        
-        
         return NO; //Don't autohide to improve delete expansion animation
+    
     }
     if (direction == MGSwipeDirectionRightToLeft && index == 1) {
 
         NSLog(@"more");
+        //delete button
+        NSIndexPath * path = [_tableView indexPathForCell:cell];
+        //start of fetching
+        NSError *error = nil;
+        AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *managedObjectContext = theDelegate.managedObjectContext;
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
+                                                  inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        NSUInteger count = [fetchedObjects count];
+        
+        Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
+        task.isComplete = @"No";
+        task.isTrashed = @"No";
+        
+        [managedObjectContext save:nil];
+        //end of fetching
+        
+        //remove the UI cell
+        [tests removeObjectAtIndex:path.row];
+        [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
         return NO; //Don't autohide to improve delete expansion animation
+    
     }
     
     return YES;
