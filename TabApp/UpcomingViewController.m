@@ -108,7 +108,7 @@
 -(NSArray *) createRightButtons: (int) number
 {
     NSMutableArray * result = [NSMutableArray array];
-    NSString* titles[2] = {@"Delete", @"Completed"};
+    NSString* titles[2] = {@"Delete", @"PutBack"};
     UIColor * colors[2] = {[UIColor redColor], [UIColor lightGrayColor]};
     for (int i = 0; i < number; ++i)
     {

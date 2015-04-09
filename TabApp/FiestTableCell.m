@@ -57,7 +57,7 @@
     
     
   //  NSString *isComplete = @"No";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete MATCHES 'No' AND isTrashed MATCHES 'No'"];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete MATCHES 'No' AND isTrashed MATCHES 'No'"];
     [fetchRequest setPredicate:predicate];
 
     

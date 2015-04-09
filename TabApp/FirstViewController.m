@@ -65,14 +65,23 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                               inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete MATCHES 'No' AND isTrashed MATCHES 'No'"];
+      [fetchRequest setPredicate:predicate];
+    
+
+    
     NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    
+    
+    
+    
+    
     for (Tasks *task in fetchedObjects) {
         
         [self.tasklist addObject:task.topic ];
         [self.courselist addObject:task.course];
         [self.teacherlist addObject:task.teacher];
-        NSLog(@"Is complete %@",task.isComplete);
-        NSLog(@"IsTrashed %@",task.isTrashed);
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM dd, yyyy HH:mm"];
@@ -169,7 +178,7 @@
          **/
         cell = [_tableView dequeueReusableCellWithIdentifier:@"FirstTableCell"];
         int height = cell.frame.size.height ;
-        NSLog(@"Height %d",height);
+
     }
     else {
         /**
@@ -183,7 +192,7 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FirstTableCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             int height = cell.frame.size.height ;
-            NSLog(@"Height2 %d",height);
+
             
             
         }
@@ -259,6 +268,8 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete MATCHES 'No' AND isTrashed MATCHES 'No'"];
+        [fetchRequest setPredicate:predicate];
         
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
@@ -295,24 +306,23 @@
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
 
-    //    NSString *topicName = Tasl
         
-        
-        
-       // NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete 'Yes'"];
-       // [fetchRequest setPredicate:predicate];
-
-        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete MATCHES 'No' AND isTrashed MATCHES 'No'"];
+        [fetchRequest setPredicate:predicate];
         
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
-        NSUInteger count = [fetchedObjects count];
+      NSUInteger count = [fetchedObjects count];
         
+  //      NSUInteger count = [_tableView numberOfRowsInSection:0];
+        
+        
+        NSLog(@"Path Row %ld",path.row);
+        NSLog(@"count %ld",count);
         Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
         task.isComplete = @"Yes";
       //  NSUInteger count = [fetchedObjects count];
-        
-        //[managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
+      //  [managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
         
         
         
