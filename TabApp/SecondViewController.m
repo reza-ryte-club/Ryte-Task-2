@@ -258,6 +258,9 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isComplete MATCHES 'Yes' AND isTrashed MATCHES 'No'"];
+        [fetchRequest setPredicate:predicate];
+      
         
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
@@ -298,7 +301,7 @@
         
         Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
         task.isComplete = @"No";
-        task.isTrashed = @"No";
+
         
         [managedObjectContext save:nil];
         //end of fetching
