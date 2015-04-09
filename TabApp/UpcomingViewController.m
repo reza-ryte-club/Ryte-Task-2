@@ -65,6 +65,10 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                               inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isTrashed MATCHES 'Yes'"];
+    [fetchRequest setPredicate:predicate];
+    
+    
     NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     for (Tasks *task in fetchedObjects) {
         
@@ -260,6 +264,10 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isTrashed MATCHES 'Yes'"];
+        [fetchRequest setPredicate:predicate];
+      
+        
         NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
         NSUInteger count = [fetchedObjects count];
@@ -303,6 +311,10 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks"
                                                   inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+        
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isTrashed MATCHES 'Yes'"];
+        [fetchRequest setPredicate:predicate];
         
         
         
