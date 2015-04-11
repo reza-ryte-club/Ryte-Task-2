@@ -49,6 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Firstviewcontroller");
     self.tasklist = [[NSMutableArray alloc] init];
     self.courselist = [[NSMutableArray alloc] init];
     self.teacherlist = [[NSMutableArray alloc] init];
@@ -102,6 +103,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [self.view addSubview:_tableView];
+        [self.tableView reloadData];//might be ommited
     }
     
 }
@@ -177,7 +179,7 @@
          * Test using storyboard and prototype cell that uses autolayout
          **/
         cell = [_tableView dequeueReusableCellWithIdentifier:@"FirstTableCell"];
-        int height = cell.frame.size.height ;
+
 
     }
     else {
@@ -191,7 +193,7 @@
             
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FirstTableCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
-            int height = cell.frame.size.height ;
+
 
             
             
@@ -284,6 +286,16 @@
         //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        
+        
+//        FirstViewController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+  //      [self presentViewController:controller animated:YES completion:nil];
+        UITabBarController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+        controller.selectedIndex=0;
+                [self presentViewController:controller animated:YES completion:nil ];
+        
+        
         return NO; //Don't autohide to improve delete expansion animation
     }
     
@@ -337,6 +349,15 @@
         //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        
+//        FirstViewController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+  //      [self presentViewController:controller animated:YES completion:nil];
+        
+        UITabBarController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+        controller.selectedIndex=0;
+                [self presentViewController:controller animated:YES completion:nil ];
+        
 
         return NO; //Don't autohide to improve delete expansion animation
     }
@@ -352,6 +373,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*
+- (void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+*/
 
 @end
 

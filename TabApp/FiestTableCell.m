@@ -42,7 +42,7 @@
     NSMutableArray * tests = [NSMutableArray array];
     
 
-    
+        NSLog(@"FirstTableCell");
     
     //start of fetching
     NSError *error = nil;

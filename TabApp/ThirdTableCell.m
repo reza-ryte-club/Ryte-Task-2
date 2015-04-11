@@ -39,7 +39,7 @@
 +(NSMutableArray *) data
 {
     NSMutableArray * tests = [NSMutableArray array];
-    
+            NSLog(@"ThirdTableCell");
 
     
     

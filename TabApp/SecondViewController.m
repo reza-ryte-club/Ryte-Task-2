@@ -49,6 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Secondviewcontroller");
     self.tasklist = [[NSMutableArray alloc] init];
     self.courselist = [[NSMutableArray alloc] init];
     self.teacherlist = [[NSMutableArray alloc] init];
@@ -95,6 +96,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [self.view addSubview:_tableView];
+
 }
     
 }
@@ -275,6 +277,10 @@
         //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        UITabBarController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+        controller.selectedIndex=1;
+        [self presentViewController:controller animated:YES completion:nil ];
+
         return NO; //Don't autohide to improve delete expansion animation
     
     }
@@ -309,6 +315,11 @@
         //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        UITabBarController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+        controller.selectedIndex=1;
+        [self presentViewController:controller animated:YES completion:nil ];
+        
         return NO; //Don't autohide to improve delete expansion animation
     
     }
@@ -325,6 +336,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+- (void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+*/
 @end
 
 

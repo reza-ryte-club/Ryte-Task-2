@@ -1,5 +1,6 @@
 //  FirstViewController.m
 
+#import "FirstViewController.h"
 #import "UpcomingViewController.h"
 #import "AppDelegate.h"
 #import "TestData.h"
@@ -24,6 +25,9 @@
     
     
 }
+//@synthesize tabController;
+
+
 
 -(void) cancelTableEditClick: (id) sender
 {
@@ -49,6 +53,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+
+    NSLog(@"Upcomingviewcontroller");
     self.tasklist = [[NSMutableArray alloc] init];
     self.courselist = [[NSMutableArray alloc] init];
     self.teacherlist = [[NSMutableArray alloc] init];
@@ -95,6 +102,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [self.view addSubview:_tableView];
+
     }
     
 }
@@ -281,8 +289,11 @@
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
         
         
-        
-        
+        //Reload the viewcontroller according to database
+        UITabBarController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+        controller.selectedIndex=2;
+        [self presentViewController:controller animated:YES completion:nil ];
+
         
         
         
@@ -342,7 +353,12 @@
         //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
-        
+        //Reload the viewcontroller according to database
+        UITabBarController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
+        controller.selectedIndex=2;
+        [self presentViewController:controller animated:YES completion:nil ];
+
+
         return NO; //Don't autohide to improve delete expansion animation
     }
     
@@ -357,6 +373,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+ - (void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+ */
+
 
 @end
 

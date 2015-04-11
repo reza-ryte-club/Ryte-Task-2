@@ -11,4 +11,7 @@
 @interface UpcomingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate,UISearchDisplayDelegate>
 @property (nonatomic, assign) BOOL testingStoryboardCell;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+//tabbar
+//@property (strong, nonatomic) UITabBarController *tabController;
 @end
