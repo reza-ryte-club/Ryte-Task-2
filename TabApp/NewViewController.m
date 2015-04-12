@@ -36,7 +36,12 @@
     NSString *course = _CourseTextField.text;
     NSString *teacher = _TeacherTextField.text;
     NSDate *due_date = _DueDatePicker.date;
-    
+    NSString *reminder_set;
+//    BOOL isReminderEnabled = YES;
+    if([_reminderSetField isOn])
+        reminder_set = @"Yes";
+    else
+        reminder_set = @"No";
     
     
     if(topic.length==0){
@@ -64,6 +69,7 @@
         tasks.due_date = due_date;
         tasks.isComplete = @"No";
         tasks.isTrashed = @"No";
+        tasks.reminder = reminder_set;
 
         
         NSLog(@"Hei");
@@ -85,6 +91,7 @@
         _TopicTextField.text = @"";
         _CourseTextField.text = @"";
         _TeacherTextField.text = @"";
+        _reminderSetField.enabled = NO;
 
         
         

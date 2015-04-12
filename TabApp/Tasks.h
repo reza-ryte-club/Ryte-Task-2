@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString * topic;
 @property (nonatomic, retain) NSString * isTrashed;
 @property (nonatomic, retain) NSString * isComplete;
+@property (nonatomic, retain) NSString * reminder;
 
 @end

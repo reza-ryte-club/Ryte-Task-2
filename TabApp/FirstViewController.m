@@ -332,12 +332,7 @@
         NSLog(@"Path Row %ld",path.row);
         NSLog(@"count %ld",count);
         Tasks* task = [fetchedObjects objectAtIndex: (count-1-path.row)];
-        task.isComplete = @"Yes";
-      //  NSUInteger count = [fetchedObjects count];
-      //  [managedObjectContext deleteObject:fetchedObjects[count-1-path.row]];
-        
-        
-        
+        task.isComplete = @"Yes";        
         [managedObjectContext save:nil];
         //end of fetching
         
@@ -349,10 +344,6 @@
         //remove the UI cell
         [tests removeObjectAtIndex:path.row];
         [_tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
-        
-        
-//        FirstViewController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
-  //      [self presentViewController:controller animated:YES completion:nil];
         
         UITabBarController *controller = [self.storyboard   instantiateViewControllerWithIdentifier:@"TheMaster"];
         controller.selectedIndex=0;

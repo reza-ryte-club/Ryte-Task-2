@@ -17,6 +17,7 @@
 @dynamic topic;
 @dynamic isTrashed;
 @dynamic isComplete;
+@dynamic reminder;
 
 
 @end

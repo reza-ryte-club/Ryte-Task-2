@@ -5,10 +5,11 @@
         <attribute name="due_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="isComplete" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isTrashed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reminder" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topic" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Tasks" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Tasks" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

@@ -37,6 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="courseLabel" destination="nXe-Th-zBe" id="iIi-VO-zI3"/>

@@ -102,6 +102,15 @@
                                 <color key="textColor" red="1" green="0.31690118220000002" blue="0.2664803999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-ex-xCs">
+                                <rect key="frame" x="299" y="330" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Reminder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q92-Wf-b1C">
+                                <rect key="frame" x="186" y="335" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -112,6 +121,7 @@
                         <outlet property="DueDatePicker" destination="sgH-ey-mCB" id="QPQ-jH-F0D"/>
                         <outlet property="TeacherTextField" destination="wC1-KM-g1q" id="6FV-uD-ZLS"/>
                         <outlet property="TopicTextField" destination="eQ4-5n-Cfr" id="wmC-cQ-Dbx"/>
+                        <outlet property="reminderSetField" destination="5hg-ex-xCs" id="XSx-zL-7ME"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eef-Ul-2uW" userLabel="First Responder" sceneMemberID="firstResponder"/>
