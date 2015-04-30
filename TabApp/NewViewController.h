@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *TeacherTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *DueDatePicker;
 @property (strong, nonatomic) IBOutlet UISwitch *reminderSetField;
+//@property (strong, nonatomic) IBOutlet UIDatePicker *reminderDatePicker;
+- (IBAction)isReminderSelected:(UISwitch *)sender;
 
 
 

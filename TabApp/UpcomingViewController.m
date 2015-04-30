@@ -178,8 +178,7 @@
          * Test using storyboard and prototype cell that uses autolayout
          **/
         cell = [_tableView dequeueReusableCellWithIdentifier:@"ThirdTableCell"];
-        int height = cell.frame.size.height ;
-        NSLog(@"Height %d",height);
+
     }
     else {
         /**
@@ -192,8 +191,7 @@
             
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ThirdTableCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
-            int height = cell.frame.size.height ;
-            NSLog(@"Height2 %d",height);
+
             
             
         }

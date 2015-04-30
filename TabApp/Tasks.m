@@ -18,6 +18,7 @@
 @dynamic isTrashed;
 @dynamic isComplete;
 @dynamic reminder;
+@dynamic reminderTime;
 
 
 @end

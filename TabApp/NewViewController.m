@@ -22,12 +22,60 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"New");
+    
+    self.DueDatePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    [self.DueDatePicker setValue:[UIColor colorWithRed:70/255.0f green:161/255.0f blue:174/255.0f alpha:1.0f] forKeyPath:@"textColor"];
+    SEL selector = NSSelectorFromString(@"setHighlightsToday:");
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDatePicker instanceMethodSignatureForSelector:selector]];
+    BOOL no = NO;
+    [invocation setSelector:selector];
+    [invocation setArgument:&no atIndex:2];
+    [invocation invokeWithTarget:self.DueDatePicker];
+    
+    
+    
+    NSAttributedString *topicStr = [[NSAttributedString alloc] initWithString:@" Enter Topic" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *courseStr =[[NSAttributedString alloc] initWithString:@" Enter Course Name" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *teacherStr =[[NSAttributedString alloc] initWithString:@" Who is the Teacher?" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    
+    self.TopicTextField.attributedPlaceholder = topicStr;
+    self.CourseTextField.attributedPlaceholder = courseStr;
+    self.TeacherTextField.attributedPlaceholder = teacherStr;
+  
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+
 }
+
+
+
+- (IBAction)isReminderSelected:(UISwitch *)sender {
+    if([_reminderSetField isOn]){
+        NSLog(@"On");
+        UIAlertView * alert = [[UIAlertView alloc]
+                               initWithTitle:@"Ryte Task!" message:@"We will notify you before 24 hours"
+                               delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+
+        
+    }
+
+    
+    else {NSLog(@"Off");
+        
+
+    }
+}
+
+
 
 
 
@@ -42,6 +90,13 @@
         reminder_set = @"Yes";
     else
         reminder_set = @"No";
+    
+    
+    if([_reminderSetField isOn]){
+        NSLog(@"Hello");
+        
+    }
+    else NSLog(@"Noooooo");
     
     
     if(topic.length==0){

@@ -25,6 +25,8 @@
 		9CCD254D1AD09BA300414614 /* Tasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD254C1AD09BA300414614 /* Tasks.m */; };
 		9CCD25531AD12C6700414614 /* UpcomingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD25521AD12C6700414614 /* UpcomingViewController.m */; };
 		9CCD25561AD12EB300414614 /* NewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD25551AD12EB300414614 /* NewViewController.m */; };
+		9CD5DD681ADCC5CC00E1A429 /* reminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5DD661ADCC5CC00E1A429 /* reminderViewController.m */; };
+		9CD5DD691ADCC5CC00E1A429 /* reminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD5DD671ADCC5CC00E1A429 /* reminderViewController.xib */; };
 		9CD748C81AD5680F005A4E7D /* FirstTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD748C51AD5680F005A4E7D /* FirstTableCell.m */; };
 		9CD748C91AD5680F005A4E7D /* FirstTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD748C71AD5680F005A4E7D /* FirstTableCell.xib */; };
 		9CD748CD1AD569EF005A4E7D /* ThirdTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD748CB1AD569EF005A4E7D /* ThirdTableCell.m */; };
@@ -76,6 +78,9 @@
 		9CCD25521AD12C6700414614 /* UpcomingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingViewController.m; sourceTree = "<group>"; };
 		9CCD25541AD12EB300414614 /* NewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewController.h; sourceTree = "<group>"; };
 		9CCD25551AD12EB300414614 /* NewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewController.m; sourceTree = "<group>"; };
+		9CD5DD651ADCC5CC00E1A429 /* reminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reminderViewController.h; sourceTree = "<group>"; };
+		9CD5DD661ADCC5CC00E1A429 /* reminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reminderViewController.m; sourceTree = "<group>"; };
+		9CD5DD671ADCC5CC00E1A429 /* reminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reminderViewController.xib; sourceTree = "<group>"; };
 		9CD748C51AD5680F005A4E7D /* FirstTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableCell.m; sourceTree = "<group>"; };
 		9CD748C61AD5680F005A4E7D /* FirstTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableCell.h; sourceTree = "<group>"; };
 		9CD748C71AD5680F005A4E7D /* FirstTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableCell.xib; sourceTree = "<group>"; };
@@ -154,6 +159,9 @@
 				9CC739F21ACF1C9400DD47C6 /* Main.storyboard */,
 				9CCD25541AD12EB300414614 /* NewViewController.h */,
 				9CCD25551AD12EB300414614 /* NewViewController.m */,
+				9CD5DD651ADCC5CC00E1A429 /* reminderViewController.h */,
+				9CD5DD661ADCC5CC00E1A429 /* reminderViewController.m */,
+				9CD5DD671ADCC5CC00E1A429 /* reminderViewController.xib */,
 				9C8C7B441AD4F1C7009036EB /* SecondTableCell.h */,
 				9C8C7B451AD4F1C7009036EB /* SecondTableCell.m */,
 				9C8C7B421AD4F127009036EB /* SecondTableCell.xib */,
@@ -282,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD5DD691ADCC5CC00E1A429 /* reminderViewController.xib in Resources */,
 				9CC739F41ACF1C9400DD47C6 /* Main.storyboard in Resources */,
 				9CC739F91ACF1C9400DD47C6 /* LaunchScreen.xib in Resources */,
 				9CF7CE9E1AD2A07800E557A6 /* SimpleTableCell.xib in Resources */,
@@ -314,6 +323,7 @@
 				9C025D6B1AD3F750001D6B21 /* MGSwipeTableCell.m in Sources */,
 				9CF7CEA11AD2A1A600E557A6 /* SimpleTableCell.m in Sources */,
 				9CC739F11ACF1C9400DD47C6 /* SecondViewController.m in Sources */,
+				9CD5DD681ADCC5CC00E1A429 /* reminderViewController.m in Sources */,
 				9CC739EB1ACF1C9400DD47C6 /* AppDelegate.m in Sources */,
 				9C025D6E1AD3FC76001D6B21 /* TestData.m in Sources */,
 				9CC739EE1ACF1C9400DD47C6 /* FirstViewController.m in Sources */,

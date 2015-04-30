@@ -19,5 +19,5 @@
 @property (nonatomic, retain) NSString * isTrashed;
 @property (nonatomic, retain) NSString * isComplete;
 @property (nonatomic, retain) NSString * reminder;
-
+@property (nonatomic, retain) NSDate * reminderTime;
 @end
