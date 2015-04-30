@@ -91,13 +91,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Reminder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q92-Wf-b1C">
-                                <rect key="frame" x="16" y="513" width="105" height="21"/>
+                                <rect key="frame" x="30" y="513" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.80425404745762707" green="0.8450251203672694" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-ex-xCs">
-                                <rect key="frame" x="140" y="508" width="51" height="31"/>
+                                <rect key="frame" x="160" y="508" width="51" height="31"/>
                                 <connections>
                                     <action selector="isReminderSelected:" destination="mFk-an-Sz8" eventType="valueChanged" id="rVZ-vX-LHP"/>
                                 </connections>
