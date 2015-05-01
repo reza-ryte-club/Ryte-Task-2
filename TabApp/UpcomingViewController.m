@@ -101,6 +101,11 @@
         //        _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        //color
+        _tableView.backgroundView = nil;
+        _tableView.backgroundColor = [UIColor redColor];
+    
+
         [self.view addSubview:_tableView];
 
     }
@@ -210,6 +215,8 @@
     //    cell.accessoryType = accessory;
     cell.delegate = self;
     //    cell.allowsMultipleSwipe = allowMultipleSwipe;
+
+    
     
     
 #if !TEST_USE_MG_DELEGATE

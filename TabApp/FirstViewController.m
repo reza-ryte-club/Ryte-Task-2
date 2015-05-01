@@ -56,6 +56,7 @@
     self.datelist = [[NSMutableArray alloc] init];
     
     
+    
     //start of fetching
     NSError *error = nil;
     AppDelegate *theDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -102,6 +103,12 @@
         //        _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        
+        //table color
+        _tableView.backgroundView = nil;
+        _tableView.backgroundColor = [UIColor blackColor];
+
+        
         [self.view addSubview:_tableView];
         [self.tableView reloadData];//might be ommited
     }
